@@ -1,0 +1,47 @@
+.menu-section {
+  padding-inline: 7%;
+
+  .menu-section-title {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-size: $normal-font-size;
+  }
+
+  .menu-section-content {
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+
+    .menu-card {
+      text-align: center;
+      padding-bottom: 3rem;
+
+      .menu-card-image {
+        max-width: 300px;
+        border-radius: 50%;
+        width: 50%;
+      }
+
+      .menu-card-title {
+        margin: 1rem auto 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-section {
+    p {
+      font-size: $h3-font-size;
+    }
+
+    .menu-card-title {
+      font-size: $h2-font-size;
+    }
+  }
+}

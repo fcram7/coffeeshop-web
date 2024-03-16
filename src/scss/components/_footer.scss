@@ -1,0 +1,45 @@
+.footer-section {
+  background-color: $color-primary;
+  text-align: center;
+  padding-block: 2.5rem;
+
+  .footer-content {
+    .socials {
+      padding: 1rem 0;
+
+      a {
+        color: $color-text;
+        margin: 0.5rem;
+        font-size: $bigger-font-size;
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+          color: $color-background;
+        }
+      }
+    }
+
+    .links {
+      margin-bottom: 1.5rem;
+
+      a {
+        color: $color-text;
+        padding: 0.7rem 1rem;
+        transition: 0.2s all ease-in-out;
+
+        &:hover {
+          color: $color-background;
+        }
+      }
+    }
+
+    .credit {
+      font-size: $small-font-size;
+
+      a {
+        color: $color-background;
+        font-weight: $font-medium;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.about-section {
+  padding-inline: 7%;
+  .row {
+    align-items: center;
+    gap: 2rem;
+
+    .about-img {
+      flex: 1 1 45rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .content {
+      flex: 1 1 35rem;
+
+      h3 {
+        font-size: $bigger-font-size;
+        margin-bottom: 1rem;
+        font-weight: $font-medium;
+      }
+
+      p {
+        margin-bottom: 0.8rem;
+        font-size: $h3-font-size;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+
+    .content {
+      padding: 0;
+
+      h3 {
+        margin-top: 1rem;
+        font-size: $bigger-font-size;
+      }
+    }
+
+    img {
+      height: 24rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

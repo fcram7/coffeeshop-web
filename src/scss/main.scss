@@ -1,0 +1,11 @@
+//BASE
+@import './base/variables';
+@import './base/base';
+@import './base/reusables';
+
+//COMPONENTS
+@import './components/navbar';
+@import './components/footer';
+
+//HOME PAGE 
+@import './pages/home/index';

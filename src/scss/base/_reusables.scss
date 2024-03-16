@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.section {
+  padding-block: 8rem;
+}
+
+.section-title {
+  font-size: $bigger-font-size;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  span {
+    color: $color-primary;
+  }
+}
