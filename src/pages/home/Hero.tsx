@@ -6,7 +6,6 @@ const Hero = () => {
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate est accusamus quaerat ipsa maiores quidem explicabo nisi assumenda excepturi distinctio.
         </p>
-        <a href="#" className="call-to-action">Buy Now!</a>
       </div>
     </section>
    );

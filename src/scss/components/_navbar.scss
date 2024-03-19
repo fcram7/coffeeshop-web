@@ -20,6 +20,40 @@
     }
   }
 
+  .search-form {
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    background-color: $color-text;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.1s linear;
+
+    #searchBox {
+      height: 100%;
+      width: 100%;
+      font-size: $h3-font-size;
+      color: $color-background;
+      padding: 1rem;
+      background-color: $color-text;
+    }
+
+    label {
+      cursor: pointer;
+      font-size: $bigger-font-size;
+      margin-right: 1.5rem;
+      color: $color-background;
+    }
+  }
+
+  .search-form.active {
+    transform: scaleY(1);
+  }
+
   .navbar-nav {
     a {
       color: $color-text;
@@ -53,17 +87,70 @@
       color: $color-text;
       font-size: $bigger-font-size;
       transition: all 0.2s ease-in-out;
+      cursor: pointer;
 
       &:hover {
         color: $color-primary;
       }
     }
   }
+
+  .shopping-cart {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    height: 80vh;
+    width: 30rem;
+    padding-inline: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    color: $color-primary;
+
+    .cart-item {
+      position: relative;
+      margin: 2rem 0;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #666;
+    }
+
+    h3 {
+      font-size: $h2-font-size;
+      padding-bottom: 0.5rem;
+    }
+
+    .item-price {
+      font-size: $h3-font-size;
+    }
+
+    .delete-item {
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+      font-size: $h1-font-size;
+      transition: 0.2s all ease-in-out;
+
+      &:hover {
+        color: $color-background;
+      }
+    }
+
+    img {
+      height: 6rem;
+      border-radius: 50%;
+    }
+  }
+
+  .shopping-cart.active {
+    right: 0;
+  }
 }
 
 #hamburgerMenu {
   display: none;
 }
+
 
 //LAPTOPS
 @media screen and (max-width: 1200px) {
@@ -91,6 +178,7 @@
       width: 30rem;
       height: 100vh;
       transition: all 0.3s ease-in-out;
+      z-index: $z-fixed;
 
       a {
         color: $color-background;
@@ -111,6 +199,11 @@
 
     .navbar-nav.active {
       right: 0;
+    }
+
+    .search-form {
+      width: 90%;
+      right: 2rem;
     }
   }
 }

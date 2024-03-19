@@ -1,0 +1,87 @@
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .modal-container {
+    animation: animateOpenModal 0.3s;
+    position: relative;
+    background-color: $color-text;
+    color: $color-background;
+    margin: 15% auto;
+    padding: 1.2rem;
+    border: 1px solid #666;
+    width: 80%;
+
+    .close-icon {
+      position: absolute;
+      right: 1rem;
+      font-size: $bigger-font-size;
+    }
+  }
+}
+
+.modal-content {
+  flex-wrap: nowrap;
+
+  img {
+    height: 17rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: $h2-font-size;
+  }
+
+  p {
+    font-size: $normal-font-size;
+    line-height: 1.8rem;
+    margin-top: 1.2rem;
+  }
+
+  button {
+    gap: 1rem;
+    width: 12rem;
+    color: $color-text;
+    background-color: $color-primary;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem;
+    font-size: $normal-font-size;
+  }
+}
+
+@keyframes animateOpenModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateCloseModal {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: -300px;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    flex-wrap: wrap;
+  }
+}

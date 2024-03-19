@@ -1,12 +1,13 @@
 .hero-section {
   min-height: 100vh;
-  background-image: url('/public/coffee-hero-4.jpg');
+  background-image: url('/coffee-hero-4.jpg');
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   background-size: cover;
   background-position: center;
   position: relative;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
 
   &::after {
     content: '';
@@ -20,7 +21,9 @@
 
   .hero-content {
     padding: 1.4rem 7%;
-    max-width: 60em;
+    text-align: center;
+    width: 100%;
+    position: fixed;
 
     h1 {
       font-size: 5em;
