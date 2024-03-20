@@ -1,22 +1,29 @@
 import { MouseEvent } from 'react';
+import rupiah from '../../../priceConverter/priceConverter';
 
 interface card {
   productImg: string,
   productName: string,
-  previousPrice: number,
-  discountedPrice?: number,
-  onClick: (e: MouseEvent) => void,
+  productPrice: number,
+  detailButton: (e: MouseEvent) => void,
+  addToCartButton: (e: MouseEvent) => void,
 }
 
 const ProductCard = (props: card) => {
   return ( 
     <article className="product-card">
       <div className="product-icons flex">
-        <a className="flex" href=""><i className="ri-shopping-cart-line"></i></a>
+        <a 
+          className="flex"
+          href=""
+          onClick={props.addToCartButton}
+        >
+          <i className="ri-shopping-cart-line"></i>
+        </a>
         <a
           className="item-detail-button flex"
           href=""
-          onClick={props.onClick}
+          onClick={props.detailButton}
         >
           <i className="ri-eye-line"></i>
         </a>
@@ -39,7 +46,7 @@ const ProductCard = (props: card) => {
         </div>
 
         <div className="product-price">
-          <h4>IDR {props.discountedPrice} <span>IDR {props.previousPrice}</span></h4>
+          <h4>{rupiah(props.productPrice)}</h4>
         </div>
       </div>
     </article>

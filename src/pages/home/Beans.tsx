@@ -1,10 +1,27 @@
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, useEffect } from 'react';
 import Modal from '../../components/Modal';
 import ProductCard from './components/productCard';
 import CoffeeBeansProduct from "/coffee-beans-product-1.jpg";
+import useProductStore from '../../zustand/product';
 
 const Beans = () => {
-  const [modal, setModal] = useState(false)
+  type Product = {
+    id: string,
+    name: string,
+    img: string,
+    description: string,
+    price: number,
+  }
+
+  const [modal, setModal] = useState(false);
+
+  const { products, cart, addToCart, totalPrice, quantity } = useProductStore();
+  
+  useEffect(() => {
+    console.log(cart)
+    console.log(totalPrice)
+    console.log(quantity)
+  }, [cart, totalPrice, quantity])
 
   const productDetailButtonHandler = (e: MouseEvent) => {
     e.preventDefault();
@@ -14,6 +31,11 @@ const Beans = () => {
   const closeModalButtonHandler = (e: MouseEvent) => {
     e.preventDefault();
     setModal((prevModal) => !prevModal);
+  }
+
+  const addToCartButtonHandler = (product: Product) => {
+    addToCart(product);
+    console.log(cart);
   }
 
   const modalArea = document.querySelector("#itemDetailModal");
@@ -33,28 +55,20 @@ const Beans = () => {
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, sapiente.</p>
 
         <div className="beans-section-content grid">
-          <ProductCard
-            onClick={productDetailButtonHandler}
-            productImg={CoffeeBeansProduct}
-            productName="Coffee Beans Little Nap"
-            previousPrice={45000}
-            discountedPrice={30000}
-          />
-
-          <ProductCard
-            onClick={productDetailButtonHandler}
-            productImg={CoffeeBeansProduct}
-            productName="Coffee Beans Little Nap"
-            previousPrice={45000}
-            discountedPrice={30000}
-          />
-          <ProductCard
-            onClick={productDetailButtonHandler}
-            productImg={CoffeeBeansProduct}
-            productName="Coffee Beans Little Nap"
-            previousPrice={45000}
-            discountedPrice={30000}
-          />
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              detailButton={productDetailButtonHandler}
+              addToCartButton={(e: MouseEvent) => {
+                e.preventDefault()
+                e.stopPropagation()
+                addToCartButtonHandler(product)
+              }}
+              productImg={product.img}
+              productName={product.name}
+              productPrice={product.price}
+            />
+          ))}
         </div>
       </section>
       <Modal
@@ -63,8 +77,7 @@ const Beans = () => {
         productImage={CoffeeBeansProduct}
         productName="Coffee Beans Little Nap"
         productDescription="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam enim quidem quibusdam alias corporis illum!"
-        previousPrice={45000}
-        discountedPrice={30000}
+        productPrice={30000}
       />
     </>
    );

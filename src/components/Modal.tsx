@@ -6,11 +6,10 @@ interface modal {
   productImage: string,
   productName: string,
   productDescription: string,
-  previousPrice: number,
-  discountedPrice: number,
+  productPrice: number,
 }
 
-const Modal = ({ closeModal, modalDisplay, productImage, productName, productDescription, previousPrice, discountedPrice }: modal) => {
+const Modal = ({ closeModal, modalDisplay, productImage, productName, productDescription, productPrice }: modal) => {
   return ( 
     <div className={`modal ${modalDisplay}`} id="itemDetailModal">
       <div className="modal-container">
@@ -38,7 +37,7 @@ const Modal = ({ closeModal, modalDisplay, productImage, productName, productDes
             </div>
 
             <div className="product-price">
-              IDR {discountedPrice} <span>IDR {previousPrice}</span>
+              IDR {productPrice}
             </div>
 
             <button className="flex"><i className="ri-shopping-cart-line"></i> Add To Cart</button>

@@ -116,12 +116,32 @@
     }
 
     h3 {
-      font-size: $h2-font-size;
-      padding-bottom: 0.5rem;
+      font-size: $h3-font-size;
     }
 
     .item-price {
-      font-size: $h3-font-size;
+      font-size: $small-font-size;
+    }
+
+    #minus, #plus {
+      padding: 0.2rem 0.4rem;
+      background-color: transparent;
+      font-size: $normal-font-size;
+      color: $color-primary;
+      transition: 0.2s all ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-background;
+      }
+    }
+
+    #minus {
+      margin-right: 0.5rem;
+    }
+
+    #plus {
+      margin-inline: 0.5rem;
     }
 
     .delete-item {
@@ -149,6 +169,20 @@
 
 #hamburgerMenu {
   display: none;
+}
+
+#shoppingCart {
+  position: relative;
+
+  .in-cart-quantity {
+    font-size: $smaller-font-size;
+    padding: 0.1rem 0.4rem;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    right: -8px;
+  }
 }
 
 
