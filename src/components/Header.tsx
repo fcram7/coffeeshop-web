@@ -1,6 +1,7 @@
 import { useState, MouseEvent, createRef } from 'react';
 import CartItem from './CartItem';
 import useProductStore from '../zustand/product';
+import rupiah from '../priceConverter/priceConverter';
 
 
 const Header = () => {
@@ -113,11 +114,39 @@ const Header = () => {
                   removeFromCart(item.id, item)
                 }}
               />
-            )) : (<h1>Cart Empty!</h1>)
+            )) : (
+              <div className="cart-empty-container flex">
+                <i className="ri-close-large-line"></i>
+                <h1 className="cart-empty">Cart Empty!</h1>
+              </div>
+            )
           }
 
           {cart.length !== 0 ? 
-            <h3 className="total-price">Total: {totalPrice}</h3>
+            <>
+              <h3 className="total-price">Total: {rupiah(totalPrice)}</h3>
+
+              <div className="form-container flex">
+                <h3>Customer Detail</h3>
+
+                <form action="" id="checkoutForm">
+                  <div className="name form flex">
+                    <label htmlFor="">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Your Name..." />
+                  </div>
+                  <div className="email form flex">
+                    <label htmlFor="">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Your Email..." />
+                  </div>
+                  <div className="address form flex">
+                    <label htmlFor="">Address</label>
+                    <textarea name="address" id="address" cols={40} rows={3} placeholder="Your Address..."></textarea>
+                  </div>
+
+                  <button type="submit" className="submit-button" id="submitButton">Checkout</button>
+                </form>
+              </div>
+            </>
             : null
           }
         </div>
