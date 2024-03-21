@@ -1,4 +1,4 @@
-import { useState, MouseEvent, createRef } from 'react';
+import { useState, MouseEvent, createRef, FormEvent, } from 'react';
 import CartItem from './CartItem';
 import useProductStore from '../zustand/product';
 import rupiah from '../priceConverter/priceConverter';
@@ -37,6 +37,11 @@ const Header = () => {
     e.stopPropagation();
     setShoppingCart((prevShoppingCart) => !prevShoppingCart);
   };
+
+  const onSubmitHandler = (e: FormEvent) => {
+    e.preventDefault();
+    alert("Success Checkout!");
+  }
 
   //OUTSIDE OF ELEMENT CLICK
   const navbarMenu = document.querySelector(".navbar-nav");
@@ -129,7 +134,10 @@ const Header = () => {
               <div className="form-container flex">
                 <h3>Customer Detail</h3>
 
-                <form action="" id="checkoutForm">
+                <form onSubmit={(e: FormEvent) => {
+                  e.stopPropagation()
+                  onSubmitHandler(e)
+                }} id="checkoutForm">
                   <div className="name form flex">
                     <label htmlFor="">Name</label>
                     <input type="text" name="name" id="name" placeholder="Your Name..." />
